@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+    
     date_default_timezone_set('Europe/Budapest');
     $date = date('j');
     $year = date('Y');
@@ -48,6 +49,7 @@
             break;
     }
     print "$adotthonap $date. $year <br>";
+    
     echo "<table border=1>";
             for ($i=1; $i <= 10; $i++) { 
                 echo "<tr>";
@@ -57,29 +59,27 @@
                 }
                 echo "</tr>";
             }
-     echo "</table>";
-
-     echo "<table border = 1>";
-     echo "<tr>";
-     $x = 1;
-     $y = 1;
-     while ($x != 10 || $y != 10) {
-        
-        $osszeg = $x * $y;
-        echo "<td> $x * $y = $osszeg </td>";
-        
-        if ($y == 10) {
-               $x++;
-               $y = 1;
-               echo "</tr>";
-               echo "<tr>";
-        }
-        $y++;
-        
-        
-    }
-     echo "</tr>";
-     echo "</table>";
+    echo "</table>";
+    
+    echo "<table border=1><tr>";
+            $i = 1;
+            
+            do {
+                $j = 1;
+                do {
+                    $osszeg = $i * $j;
+                    echo "<td> $i * $j = $osszeg</td>";
+                    $j++;
+                } while ($j <= 10);
+                if ($i != 11) {
+                    echo "</tr><tr>";
+                    $i++;
+                }
+                if ($i == 11) {
+                    break;
+                }
+            } while ($i <= 11);
+    echo "</tr></table>";
 ?>
 <head>
     <meta charset="UTF-8">
